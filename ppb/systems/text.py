@@ -21,6 +21,7 @@ from sdl2.sdlttf import (
 
 from ppb.assetlib import Asset, ChainingMixin, AbstractAsset, FreeingMixin
 from ppb.systems.sdl_utils import ttf_call
+from ppb.colors import Color
 
 # From https://www.freetype.org/freetype2/docs/reference/ft2-base_interface.html:
 # [Since 2.5.6] In multi-threaded applications it is easiest to use one
@@ -109,11 +110,11 @@ class Text(ChainingMixin, FreeingMixin, AbstractAsset):
     """
     A bit of rendered text.
     """
-    def __init__(self, txt, *, font, color=(0, 0, 0)):
+    def __init__(self, txt, *, font, color=Color(0, 0, 0)):
         """
         :param txt: The text to display.
-        :param font: The font to use (a :py:class:`ppb.Font`)
-        :param color: The color to use.
+        :param font: The font to use (a :py:class:`ppb.Font`).
+        :param color: The color to use (a :py:class:`ppb.Color`).
         """
         self.txt = txt
         self.font = font

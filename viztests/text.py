@@ -22,7 +22,7 @@ class TextScene(ppb.Scene):
                 image=ppb.Text(
                     "Hello, PPB!",
                     font=ppb.Font(f"resources/ubuntu_font/Ubuntu-{font}.ttf", size=72),
-                    color=hsv2rgb(i / 10, 1.0, 75)
+                    color=ppb.Color(*hsv2rgb(i / 10, 1.0, 75))
                 ),
                 position=(0, i-4.5),
             ))
