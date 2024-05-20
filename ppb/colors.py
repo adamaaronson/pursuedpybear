@@ -1,8 +1,9 @@
 from dataclasses import dataclass
+import colorsys
 
 @dataclass()
 class Color():
-    """An RGB color."""
+    """An RGB color, with red, green, and blue values ranging from 0-255."""
     red: int
     green: int
     blue: int
@@ -16,6 +17,12 @@ class Color():
     
     def __iter__(self):
         return (self.red, self.green, self.blue)
+
+    @staticmethod
+    def from_hsv(hue: float, saturation: float, value: float):
+        """Convert the given HSV color values to an RGB color."""
+        red, green, blue = colorsys.hsv_to_rgb(hue, saturation, value)
+        return Color(int(red * 256), int(green * 256), int(blue * 256))
 
 
 BLACK = Color(0, 0, 0)
