@@ -13,7 +13,7 @@ transition at any time.
 
     .. autoattribute:: background_color
        
-       An RGB triple of the background, eg ``(0, 127, 255)``
+       The background color of the scene, e.g. ``ppb.Color(0, 127, 255)``
 
     .. autoattribute:: main_camera
        

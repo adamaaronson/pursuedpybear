@@ -1,5 +1,6 @@
 from pytest import fixture
 
+from ppb.colors import Color
 from ppb.scenes import Scene
 from ppb.camera import Camera
 
@@ -22,10 +23,10 @@ def test_main_camera(scene):
 
 def test_class_attrs():
     class BackgroundScene(Scene):
-        background_color = (0, 4, 2)
+        background_color = Color(0, 4, 2)
 
     scene = BackgroundScene()
-    assert scene.background_color == (0, 4, 2)
+    assert scene.background_color == Color(0, 4, 2)
 
-    scene = BackgroundScene(background_color=(2, 4, 0))
-    assert scene.background_color == (2, 4, 0)
+    scene = BackgroundScene(background_color=Color(2, 4, 0))
+    assert scene.background_color == Color(2, 4, 0)

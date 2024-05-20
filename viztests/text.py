@@ -29,7 +29,7 @@ class TextScene(ppb.Scene):
 
     def on_update(self, event, signal):
         self.elapsed += event.time_delta
-        self.background_color = hsv2rgb(self.elapsed / 10, 1.0, 200)
+        self.background_color = ppb.Color(*hsv2rgb(self.elapsed / 10, 1.0, 200))
 
 
 ppb.run(starting_scene=TextScene)

@@ -13,7 +13,7 @@ circle = ppb.Circle(150, 50, 200)
 
 
 def setup(scene):
-    scene.background_color = (0, 0, 0)
+    scene.background_color = ppb.Color(0, 0, 0)
     scene.add(ppb.RectangleSprite(width=0.5, height=1, image=tall_rectangle, position=(-2, 2)))
     scene.add(ppb.RectangleSprite(width=1, height=0.5, image=wide_rectangle, position=(0, 2)))
     scene.add(ppb.Sprite(size=1, image=square, position=(2, 2)))

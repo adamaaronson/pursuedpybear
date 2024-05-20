@@ -1,9 +1,9 @@
-from colors import Color
 from typing import Callable
 from typing import Iterator
 from typing import Sequence
 
 from ppb.camera import Camera
+from ppb.colors import Color
 from ppb.gomlib import GameObject
 
 

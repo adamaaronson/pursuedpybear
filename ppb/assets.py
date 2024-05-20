@@ -1,6 +1,5 @@
 from ctypes import byref, c_int
 from typing import NamedTuple, Tuple, Union
-from colors import Color, BLACK, MAGENTA
 
 import sdl2.ext
 from sdl2 import (
@@ -22,6 +21,7 @@ from sdl2.sdlgfx import (
 )
 
 from ppb.assetlib import BackgroundMixin, FreeingMixin, AbstractAsset
+from ppb.colors import Color, BLACK, MAGENTA
 from ppb.systems.sdl_utils import sdl_call
 
 __all__ = (

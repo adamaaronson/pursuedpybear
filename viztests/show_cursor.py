@@ -28,7 +28,7 @@ class RootScene(ppb.Scene):
                 image=ppb.Text(
                     " ".join((self.cursor[cursor_state], self._continue)),
                     font=font,
-                    color=(255, 255, 255)
+                    color=ppb.Color(255, 255, 255)
                 )
             )
         )
@@ -39,7 +39,7 @@ class RootScene(ppb.Scene):
 
 
 class NoCursorScene(RootScene):
-    background_color = (100, 100, 100)
+    background_color = ppb.Color(100, 100, 100)
     show_cursor = False
 
 
@@ -48,7 +48,7 @@ class DefaultScene(RootScene):
 
 
 class ExplicitVisibleCursor(RootScene):
-    background_color = (0, 0, 0)
+    background_color = ppb.Color(0, 0, 0)
     show_cursor = True
     click_event = ppb.events.StartScene(DefaultScene)
 
