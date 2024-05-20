@@ -15,6 +15,14 @@ class Color():
         self.green = green
         self.blue = blue
     
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Color):
+            return False
+        return self.red == other.red and self.green == other.green and self.blue == other.blue
+    
+    def __iter__(self) -> tuple[int]:
+        return (self.red, self.green, self.blue)
+    
     def __repr__(self) -> str:
         return f'<{type(self).__name__} red={self.red} green={self.green} blue={self.blue}>'
 

@@ -1,5 +1,6 @@
 from ctypes import byref, c_int
 from typing import NamedTuple, Tuple, Union
+from colors import Color, BLACK, MAGENTA
 
 import sdl2.ext
 from sdl2 import (
@@ -31,8 +32,6 @@ __all__ = (
     "Ellipse"
 )
 
-BLACK = 0, 0, 0
-MAGENTA = 255, 71, 182
 DEFAULT_SPRITE_SIZE = 64
 
 
@@ -41,7 +40,7 @@ class AspectRatio(NamedTuple):
     height: Union[int, float]
 
 
-def _create_surface(color, aspect_ratio: AspectRatio = AspectRatio(1, 1)):
+def _create_surface(color: Color, aspect_ratio: AspectRatio = AspectRatio(1, 1)):
     """
     Creates a surface for assets and sets the color key.
     """
@@ -72,8 +71,8 @@ aspect_ratio_type = Union[AspectRatio, Tuple[Union[float, int], Union[float, int
 
 class Shape(BackgroundMixin, FreeingMixin, AbstractAsset):
     """Shapes are drawing primitives that are good for rapid prototyping."""
-    def __init__(self, red: int, green: int, blue: int, aspect_ratio: aspect_ratio_type = AspectRatio(1, 1)):
-        self.color = red, green, blue
+    def __init__(self, color: Color, aspect_ratio: aspect_ratio_type = AspectRatio(1, 1)):
+        self.color = color
         self.aspect_ratio = AspectRatio(*aspect_ratio)
         self._start()
 
@@ -85,7 +84,7 @@ class Shape(BackgroundMixin, FreeingMixin, AbstractAsset):
             _check_error=lambda rv: not rv
         )
         try:
-            self._draw_shape(renderer, rgb=self.color)
+            self._draw_shape(renderer, color=self.color)
         finally:
             sdl_call(SDL_DestroyRenderer, renderer)
         return surface
@@ -104,9 +103,9 @@ class Rectangle(Shape):
     A rectangle image of a single color.
     """
 
-    def _draw_shape(self, renderer, rgb, **_):
+    def _draw_shape(self, renderer, color: Color, **_):
         sdl_call(
-            SDL_SetRenderDrawColor, renderer, *(int(c) for c in rgb), 255,
+            SDL_SetRenderDrawColor, renderer, *color, 255,
             _check_error=lambda rv: rv < 0
         )
         sdl_call(
@@ -120,9 +119,9 @@ class Square(Rectangle):
     A constructor for :class:`~ppb.Rectangle` that produces a square image.
     """
 
-    def __init__(self, r, g, b):
+    def __init__(self, color: Color):
         # This cuts out the aspect_ratio parameter
-        super().__init__(r, g, b)
+        super().__init__(color)
 
 
 class Triangle(Shape):
@@ -130,7 +129,7 @@ class Triangle(Shape):
     A triangle image of a single color.
     """
 
-    def _draw_shape(self, renderer, rgb, **_):
+    def _draw_shape(self, renderer, color: Color, **_):
         w, h = c_int(), c_int()
         sdl_call(SDL_GetRendererOutputSize, renderer, byref(w), byref(h))
         width, height = w.value, h.value
@@ -140,7 +139,7 @@ class Triangle(Shape):
             0, height,
             int(width / 2), 0,
             width, height,
-            *rgb, 255,
+            *color, 255,
             _check_error=lambda rv: rv < 0
         )
 
@@ -150,7 +149,7 @@ class Ellipse(Shape):
     An ellipse image of a single color.
     """
 
-    def _draw_shape(self, renderer, rgb, **_):
+    def _draw_shape(self, renderer, color: Color, **_):
         w, h = c_int(), c_int()
         sdl_call(SDL_GetRendererOutputSize, renderer, byref(w), byref(h))
         half_width, half_height = int(w.value / 2), int(h.value / 2)
@@ -159,7 +158,7 @@ class Ellipse(Shape):
             filledEllipseRGBA, renderer,
             half_width, half_height,  # Center
             half_width, half_height,  # Radius
-            *rgb, 255,
+            *color, 255,
             _check_error=lambda rv: rv < 0
         )
 
@@ -167,6 +166,6 @@ class Ellipse(Shape):
 class Circle(Ellipse):
     """A convenience constructor for :class:`~ppb.Ellipse` that is a perfect circle."""
 
-    def __init__(self, r, g, b):
+    def __init__(self, color: Color):
         # This cuts out the aspect_ratio parameter
-        super().__init__(r, g, b)
+        super().__init__(color)

@@ -32,6 +32,7 @@ Exports:
 * :mod:`buttons`
 * :mod:`keycodes`
 * :mod:`flags`
+* :mod:`colors`
 * :mod:`directions`
 * :class:`Signal`
 """
