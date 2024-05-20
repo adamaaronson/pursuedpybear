@@ -24,7 +24,7 @@ def setup(scene):
         width=1, height=0.5,
         image=ppb.Rectangle(ppb.Color(100, 200, 0), (2, 1)), position=(0, 2)))
     scene.add(ppb.Sprite(size=1,
-                         image=ppb.Square(200, 200, 100), position=(2, 2)))
+                         image=ppb.Square(ppb.Color(200, 200, 100)), position=(2, 2)))
     scene.add(ppb.RectangleSprite(
         width=0.5, height=1,
         image=ppb.Triangle(ppb.Color(0, 200, 0), (1, 2)), position=(-2, 0)))

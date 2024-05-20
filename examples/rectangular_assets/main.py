@@ -1,15 +1,15 @@
 import ppb
 
 
-tall_rectangle = ppb.Rectangle(200, 0, 0, (1, 2))
-wide_rectangle = ppb.Rectangle(100, 200, 0, (2, 1))
-square = ppb.Square(200, 200, 100)
-tall_triangle = ppb.Triangle(0, 200, 0, (1, 2))
-wide_triangle = ppb.Triangle(0, 200, 100, (2, 1))
-square_triangle = ppb.Triangle(50, 200, 150)
-tall_ellipse = ppb.Ellipse(0, 0, 200, (1, 2))
-wide_ellipse = ppb.Ellipse(100, 0, 200, (2, 1))
-circle = ppb.Circle(150, 50, 200)
+tall_rectangle = ppb.Rectangle(ppb.Color(200, 0, 0), (1, 2))
+wide_rectangle = ppb.Rectangle(ppb.Color(100, 200, 0), (2, 1))
+square = ppb.Square(ppb.Color(200, 200, 100))
+tall_triangle = ppb.Triangle(ppb.Color(0, 200, 0), (1, 2))
+wide_triangle = ppb.Triangle(ppb.Color(0, 200, 100), (2, 1))
+square_triangle = ppb.Triangle(ppb.Color(50, 200, 150))
+tall_ellipse = ppb.Ellipse(ppb.Color(0, 0, 200), (1, 2))
+wide_ellipse = ppb.Ellipse(ppb.Color(100, 0, 200), (2, 1))
+circle = ppb.Circle(ppb.Color(150, 50, 200))
 
 
 def setup(scene):
