@@ -47,6 +47,7 @@ from ppb.assets import Ellipse
 from ppb.assets import Rectangle
 from ppb.assets import Square
 from ppb.assets import Triangle
+from ppb.colors import Color
 from ppb.engine import GameEngine
 from ppb.engine import Signal
 from ppb.scenes import Scene
@@ -62,7 +63,7 @@ __all__ = (
     # Shortcuts
     'Scene', 'Sprite', 'RectangleSprite', 'Vector',
     'Image', 'Circle', 'Ellipse', 'Square', 'Rectangle', 'Triangle',
-    'Font', 'Text', 'Sound',
+    'Color', 'Font', 'Text', 'Sound',
     'events', 'buttons', 'keycodes', 'flags', 'directions', 'Signal',
     # Local stuff
     'run', 'make_engine',
