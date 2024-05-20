@@ -1,3 +1,4 @@
+from colors import Color
 from typing import Callable
 from typing import Iterator
 from typing import Sequence
@@ -8,7 +9,7 @@ from ppb.gomlib import GameObject
 
 class Scene(GameObject):
     # Background color, in RGB, each channel is 0-255
-    background_color: Sequence[int] = (0, 0, 100)
+    background_color: Color
     camera_class = Camera
     show_cursor = True
 
