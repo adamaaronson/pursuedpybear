@@ -14,7 +14,7 @@ class Color():
             elif value > 255:
                 raise ValueError(f'{key} cannot be greater than 255.')
     
-    def __iter__(self) -> tuple[int]:
+    def __iter__(self):
         return (self.red, self.green, self.blue)
 
 
