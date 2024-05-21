@@ -57,7 +57,7 @@ def _create_surface(color: Color, aspect_ratio: AspectRatio = AspectRatio(1, 1))
         _check_error=lambda rv: not rv
     )
     color_key = BLACK if color != BLACK else MAGENTA
-    color = sdl2.ext.Color(*color_key)
+    color = sdl2.ext.Color(color_key.to_rgb())
     sdl_call(
         SDL_SetColorKey, surface, True, sdl2.ext.prepare_color(color, surface.contents),
         _check_error=lambda rv: rv < 0

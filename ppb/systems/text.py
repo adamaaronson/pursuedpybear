@@ -129,7 +129,7 @@ class Text(ChainingMixin, FreeingMixin, AbstractAsset):
         with _freetype_lock:
             return ttf_call(
                 TTF_RenderUTF8_Blended, self.font.load(), self.txt.encode('utf-8'),
-                SDL_Color(self.color.to_rgb()),
+                SDL_Color(*self.color.to_rgb()),
                 _check_error=lambda rv: not rv
             )
 

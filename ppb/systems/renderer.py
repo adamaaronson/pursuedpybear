@@ -229,7 +229,7 @@ class Renderer(SdlSubSystem):
     def render_background(self, scene):
         background_color = scene.background_color
         sdl_call(
-            SDL_SetRenderDrawColor, self.renderer, *background_color, 255,
+            SDL_SetRenderDrawColor, self.renderer, *background_color.to_rgb(), 255,
             _check_error=lambda rv: rv < 0
         )
         sdl_call(SDL_RenderClear, self.renderer, _check_error=lambda rv: rv < 0)
