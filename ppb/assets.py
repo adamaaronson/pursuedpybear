@@ -57,7 +57,7 @@ def _create_surface(color: Color, aspect_ratio: AspectRatio = AspectRatio(1, 1))
         _check_error=lambda rv: not rv
     )
     color_key = BLACK if color != BLACK else MAGENTA
-    color = sdl2.ext.Color(color_key.to_rgb())
+    color = sdl2.ext.Color(*color_key.to_rgb())
     sdl_call(
         SDL_SetColorKey, surface, True, sdl2.ext.prepare_color(color, surface.contents),
         _check_error=lambda rv: rv < 0
@@ -105,7 +105,7 @@ class Rectangle(Shape):
 
     def _draw_shape(self, renderer, color: Color, **_):
         sdl_call(
-            SDL_SetRenderDrawColor, renderer, *color, 255,
+            SDL_SetRenderDrawColor, renderer, *color.to_rgb(), 255,
             _check_error=lambda rv: rv < 0
         )
         sdl_call(
@@ -139,7 +139,7 @@ class Triangle(Shape):
             0, height,
             int(width / 2), 0,
             width, height,
-            *color, 255,
+            *color.to_rgb(), 255,
             _check_error=lambda rv: rv < 0
         )
 
@@ -158,7 +158,7 @@ class Ellipse(Shape):
             filledEllipseRGBA, renderer,
             half_width, half_height,  # Center
             half_width, half_height,  # Radius
-            *color, 255,
+            *color.to_rgb(), 255,
             _check_error=lambda rv: rv < 0
         )
 
