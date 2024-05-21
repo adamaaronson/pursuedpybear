@@ -1,8 +1,8 @@
 import ppb
 
 font = ppb.Font("resources/ubuntu_font/Ubuntu-R.ttf", size=72)
-my_first_text = ppb.Text("My first text", font=font, color=ppb.Color(255, 255, 255))
-my_second_text = ppb.Text("My second text", font=font, color=ppb.Color(255, 255, 255))
+my_first_text = ppb.Text("My first text", font=font, color=ppb.RGBColor(255, 255, 255))
+my_second_text = ppb.Text("My second text", font=font, color=ppb.RGBColor(255, 255, 255))
 
 
 def setup(scene):

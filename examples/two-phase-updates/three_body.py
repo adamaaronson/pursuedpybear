@@ -40,9 +40,9 @@ class Planet(Sprite, TwoPhaseMixin):
 
 
 def setup(scene):
-    scene.add(Planet(position=(3, 0), velocity=Vector(0, 1), image=ppb.Circle(ppb.Color(40, 200, 150))))
-    scene.add(Planet(position=(-3, 3), velocity=Vector(1, -1), image=ppb.Circle(ppb.Color(200, 150, 40))))
-    scene.add(Planet(position=(-3, -3), velocity=Vector(-1, 0), image=ppb.Circle(ppb.Color(150, 40, 200))))
+    scene.add(Planet(position=(3, 0), velocity=Vector(0, 1), image=ppb.Circle(ppb.RGBColor(40, 200, 150))))
+    scene.add(Planet(position=(-3, 3), velocity=Vector(1, -1), image=ppb.Circle(ppb.RGBColor(200, 150, 40))))
+    scene.add(Planet(position=(-3, -3), velocity=Vector(-1, 0), image=ppb.Circle(ppb.RGBColor(150, 40, 200))))
 
 
 if __name__ == "__main__":

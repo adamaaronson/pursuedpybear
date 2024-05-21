@@ -7,7 +7,7 @@ class Square(ppb.sprites.RectangleSprite):
     width = 1
     height = 4
 
-    image = ppb.Square(ppb.Color(0, 0, 255))
+    image = ppb.Square(ppb.RGBColor(0, 0, 255))
 
 
 class Tall(ppb.sprites.RectangleSprite):

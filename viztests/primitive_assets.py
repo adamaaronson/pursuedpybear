@@ -18,19 +18,19 @@ class Rotating(ppb.Sprite):
 
 
 class Square(Rotating):
-    image = ppb.Square(ppb.Color(255, 50, 75))
+    image = ppb.Square(ppb.RGBColor(255, 50, 75))
 
 
 class Triangle(Rotating):
-    image = ppb.Triangle(ppb.Color(0, 0, 0))
+    image = ppb.Triangle(ppb.RGBColor(0, 0, 0))
 
 
 class Circle(Rotating):
-    image = ppb.Circle(ppb.Color(255, 71, 182))
+    image = ppb.Circle(ppb.RGBColor(255, 71, 182))
 
 
 def setup(scene):
-    scene.background_color = ppb.Color(160, 155, 180)
+    scene.background_color = ppb.RGBColor(160, 155, 180)
     scene.add(Square(position=ppb.Vector(-2, 0)))
     scene.add(Triangle(position=ppb.Vector(0, 2)))
     scene.add(Circle(position=ppb.Vector(2, 0)))

@@ -3,7 +3,7 @@ from unittest import mock
 
 import pytest
 
-from ppb import Color, GameEngine, Scene, Vector
+from ppb import RGBColor, GameEngine, Scene, Vector
 from ppb import events
 from ppb.systemslib import System
 from ppb.systems import Updater
@@ -18,7 +18,7 @@ STOP = False
 def scenes():
     yield Scene
     yield Scene()
-    yield Scene(background_color=Color(0, 0, 0))
+    yield Scene(background_color=RGBColor(0, 0, 0))
 
 
 @pytest.mark.parametrize("scene", scenes())
@@ -31,7 +31,7 @@ def test_engine_initial_scene(scene):
 
 def test_game_engine_with_scene_class():
     props = {
-        "background_color": Color(69, 69, 69),
+        "background_color": RGBColor(69, 69, 69),
         "show_cursor": False
     }
     with GameEngine(Scene, basic_systems=[Quitter], scene_kwargs=props) as ge:

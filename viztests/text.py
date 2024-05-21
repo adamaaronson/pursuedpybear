@@ -22,14 +22,14 @@ class TextScene(ppb.Scene):
                 image=ppb.Text(
                     "Hello, PPB!",
                     font=ppb.Font(f"resources/ubuntu_font/Ubuntu-{font}.ttf", size=72),
-                    color=ppb.Color(*hsv2rgb(i / 10, 1.0, 75))
+                    color=ppb.RGBColor(*hsv2rgb(i / 10, 1.0, 75))
                 ),
                 position=(0, i-4.5),
             ))
 
     def on_update(self, event, signal):
         self.elapsed += event.time_delta
-        self.background_color = ppb.Color(*hsv2rgb(self.elapsed / 10, 1.0, 200))
+        self.background_color = ppb.RGBColor(*hsv2rgb(self.elapsed / 10, 1.0, 200))
 
 
 ppb.run(starting_scene=TextScene)
