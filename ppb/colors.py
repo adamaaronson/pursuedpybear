@@ -20,9 +20,12 @@ class Color():
 
     @staticmethod
     def from_hsv(hue: float, saturation: float, value: float):
-        """Convert the given HSV color values to an RGB color."""
+        """
+        Create a Color from the given HSV color,
+        with hue, saturation, and value ranging from 0-1.
+        """
         red, green, blue = colorsys.hsv_to_rgb(hue, saturation, value)
-        return Color(int(red * 256), int(green * 256), int(blue * 256))
+        return Color(round(red * 255), round(green * 255), round(blue * 255))
 
 
 BLACK = Color(0, 0, 0)
